@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agente GPT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .perfil {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .perfil:hover {
+            transform: translateY(-3px);
+        }
+        .perfil h2 {
+            color: #4f46e5;
+            margin-top: 0;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Selecione um Perfil</h1>
+        
+        <div class="perfil" data-perfil="atendimento">
+            <h2><i class="fas fa-headset"></i> Atendimento</h2>
+            <p>Atendimento gentil e personalizado</p>
+        </div>
+        
+        <div class="perfil" data-perfil="suporte">
+            <h2><i class="fas fa-tools"></i> Suporte</h2>
+            <p>Soluções rápidas e técnicas</p>
+        </div>
+        
+        <div class="perfil" data-perfil="vendedor">
+            <h2><i class="fas fa-store"></i> Vendedor</h2>
+            <p>Conversão e fechamento de vendas</p>
+        </div>
+        
+        <div id="status" class="status"></div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
