@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AgenteGPT - Cadastrar Infoproduto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body class="product-body">
+    <div class="product-page-container">
+        <h1>Cadastrar Infoproduto</h1>
+
+        <div class="product-form-grid">
+            <div class="product-form-left">
+                <div class="form-group">
+                    <label for="productName">Nome</label>
+                    <input type="text" id="productName" placeholder="Ex: Fórmula do Tráfego Orgânico para Afiliados"
+                        class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="saleLink">Link de Venda</label>
+                    <input type="text" id="saleLink" placeholder="Cole aqui o link do seu site https://meuproduto.com/checkout" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label>Palavras-chave (Desativa a IA ao usuário enviar)</label>
+                    <div class="suggested-keywords-checkboxes">
+                        <label class="checkbox-container">Comprar
+                            <input type="checkbox" class="suggested-keyword-checkbox" value="comprar">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">Adquirir
+                            <input type="checkbox" class="suggested-keyword-checkbox" value="adquirir">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">Preço
+                            <input type="checkbox" class="suggested-keyword-checkbox" value="preço">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">Valor
+                            <input type="checkbox" class="suggested-keyword-checkbox" value="valor">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">Link
+                            <input type="checkbox" class="suggested-keyword-checkbox" value="link">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-form-right">
+                <div class="form-group">
+                    <label for="productDescription">Descrição Produto</label>
+                    <textarea id="productDescription"
+                        placeholder="COMO DESCREVER O PRODUTO:
+1. O que é o produto (nome).
+2. Para quem é (público-alvo).
+3. Qual dor ou problema ele resolve.
+4. Qual transformação ou benefício ele entrega.
+Ex: 'Seca Barriga é um suplemento natural para mulheres acima dos 30 que lutam para perder gordura abdominal. Ele elimina inchaço e promove emagrecimento saudável, devolvendo a autoestima e energia.'"
+                        class="form-textarea"></textarea>
+                    <div class="char-counter">
+                        <span id="descriptionCharCount">0/500 caracteres</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-form-actions">
+            <button id="backButton" class="btn-secondary">Voltar</button>
+            <button id="saveProductButton" class="btn-primary">Salvar Infoproduto</button>
+        </div>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+
+</html>

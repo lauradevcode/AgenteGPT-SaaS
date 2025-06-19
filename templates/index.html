@@ -1,65 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Agente GPT</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .perfil {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .perfil:hover {
-            transform: translateY(-3px);
-        }
-        .perfil h2 {
-            color: #4f46e5;
-            margin-top: 0;
-        }
-        .status {
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 5px;
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
-<body>
+
+<body class="dashboard-body">
     <div class="container">
-        <h1>Selecione um Perfil</h1>
-        
-        <div class="perfil" data-perfil="atendimento">
-            <h2><i class="fas fa-headset"></i> Atendimento</h2>
-            <p>Atendimento gentil e personalizado</p>
+        <div class="dashboard-header">
+            <h1>Escolha o Perfil do seu Assistente:</h1>
+            <div class="header-buttons">
+                <a href="configuracoes.html" class="btn-config">
+                    <i class="fas fa-cog"></i> Configurações
+                </a>
+                <a href="#" id="logoutButton" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+            </div>
         </div>
-        
-        <div class="perfil" data-perfil="suporte">
-            <h2><i class="fas fa-tools"></i> Suporte</h2>
-            <p>Soluções rápidas e técnicas</p>
+
+        <div class="profiles-section">
+            <div class="profiles-grid">
+                <div class="profile-card" data-profile="ebook_vendedor">
+                    <h2><i class="fas fa-book-open"></i> Vendedor de Ebook</h2>
+                    <p>Perfil focado em responder dúvidas comuns e converter com provas sociais e gatilhos mentais.</p>
+                </div>
+                <div class="profile-card" data-profile="curso_gravado">
+                    <h2><i class="fas fa-video"></i> Curso Gravado</h2>
+                    <p>Apresenta os módulos, benefícios e diferenciais do curso de forma didática e envolvente.</p>
+                </div>
+                <div class="profile-card" data-profile="mentoria_consultoria">
+                    <h2><i class="fas fa-user-tie"></i> Mentoria / Consultoria</h2>
+                    <p>Foca em mostrar autoridade, tirar objeções profundas e preparar o lead para fechar no 1 a 1.</p>
+                </div>
+                <div class="profile-card" data-profile="comunidade_paga">
+                    <h2><i class="fas fa-users"></i> Comunidade Paga</h2>
+                    <p>Destaca networking, benefícios exclusivos e senso de pertencimento à tribo do produto.</p>
+                </div>
+            </div>
         </div>
-        
-        <div class="perfil" data-perfil="vendedor">
-            <h2><i class="fas fa-store"></i> Vendedor</h2>
-            <p>Conversão e fechamento de vendas</p>
+
+        <div id="statusMessage" class="status-message"></div>
+
+        <div class="dashboard-actions-bottom">
+            <button id="backButtonIndex" class="btn-secondary">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </button>
+            <button id="activateProfileButton" class="btn-primary" disabled>
+                <i class="fas fa-play"></i> Ativar Perfil
+            </button>
         </div>
-        
-        <div id="status" class="status"></div>
     </div>
 
-    <script src="/static/script.js"></script>
+    <script src="../static/script.js"></script>
 </body>
+
 </html>

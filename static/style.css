@@ -1,101 +1,733 @@
-/* static/style.css */
+/*
+ * static/style.css
+ * Este arquivo contém TODOS os estilos do projeto:
+ * - Estilos para o layout de dashboard/perfis.
+ * - Estilos para a tela de login/conexão.
+ * - Regras para títulos, botões e elementos de status.
+ */
+
+/* =====================================
+    ESTILOS GLOBAIS / RESET BÁSICO
+    ===================================== */
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f7fafa;
-  display: flex;
-  color: #2c3e50;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #1abc9cc2, #03d479f3);
+    background-attachment: fixed;
+    color: #2c3e50;
+    line-height: 1.6;
 }
 
-.sidebar {
-  width: 280px;
-  background: #f1f3f4;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+/* =====================================
+    ESTILOS DA TELA DE DASHBOARD (index.html)
+    ===================================== */
+.dashboard-body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
 }
 
-.sidebar h2 span {
-  background: yellow;
-  padding: 2px 4px;
-  border-radius: 4px;
+.container {
+    max-width: 1800px;
+    margin: 60px auto;
+    padding: 50px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-.sidebar nav button {
-  width: 100%;
-  margin: 1rem 0;
-  padding: 1rem;
-  background: #dce3e6;
-  border: none;
-  text-align: left;
-  border-radius: 10px;
-  font-weight: bold;
+/* --- Cabeçalho e Controles do Dashboard --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between; /* Mantém espaço entre título e botões do cabeçalho */
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 50px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.sidebar nav button.active {
-  background: #c5d4da;
+.header-buttons { /* Para agrupar os botões de Configurações e Sair */
+    display: flex;
+    gap: 25px; /* Espaço entre os botões */
 }
 
-.main {
-  flex: 1;
-  padding: 2rem;
+.container h1 {
+    color: #2c3e50;
+    font-size: 2.8rem;
+    margin: 0;
 }
 
-header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.btn-config,
+.btn-logout {
+    color: white;
+    padding: 16px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.user {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.btn-config {
+    background-color: #1ABC9C;
+    /* margin-left: auto; removido, pois a div header-buttons já controla o espaçamento */
+    /* margin-right: 25px; removido */
 }
 
-.user img {
-  border-radius: 50%;
+.btn-config:hover {
+    background-color: #148f77;
+    transform: translateY(-2px);
 }
 
-.card {
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  margin-right: 1rem;
-  flex: 1;
+.btn-logout {
+    background-color: #e74c3c;
 }
 
-.info-cards {
-  display: flex;
-  margin-bottom: 1rem;
+.btn-logout:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
 }
 
-.mensagens textarea {
-  width: 100%;
-  height: 100px;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+/* --- Seção de Perfis --- */
+.profiles-section {
+    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
-.perfis .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+.profiles-grid {
+    display: grid;
+    /* ALTERADO: Agora são 2 colunas no desktop */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 10px;
 }
 
-.perfil {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 1rem;
-  cursor: pointer;
-  text-align: center;
+.profile-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 160px;
 }
 
-.perfil:hover {
-  background: #eef6f8;
+.profile-card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.profile-card h2 i {
+    margin-right: 10px;
+    color: #1ABC9C;
+}
+
+.profile-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+.profile-card:hover {
+    background: #eef6f8;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.profile-card.active {
+    border-color: #1ABC9C;
+    box-shadow: 0 0 0 3px #1ABC9C, 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.status-message {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    text-align: center;
+    color: #333;
+    font-size: 1.1rem;
+    display: none;
+}
+
+/* NOVO: Estilos para o container dos botões "Voltar" e "Ativar Perfil" no Dashboard */
+.dashboard-actions-bottom {
+    display: flex;
+    justify-content: flex-end; /* Alinha os botões à direita por padrão */
+    gap: 20px; /* Espaço entre os botões */
+    margin-top: 40px; /* Espaço acima do botão, abaixo dos cards/status */
+    padding: 0 10px; /* Padding para alinhar com o conteúdo */
+}
+
+/* =====================================
+    ESTILOS DA TELA DE LOGIN (login.html)
+    ===================================== */
+.login-body {
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.login-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-aside {
+    flex: 1;
+    background-color: #E0F4EE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-logo {
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.logo-chatbot {
+    max-width: 340px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.login-slogan {
+    font-size: 1.2rem;
+    color: #333;
+    max-width:400px;
+    margin-bottom: 40px;
+    text-align: left;
+    line-height: 1.7;
+    letter-spacing: 2px;
+}
+
+.btn-trial {
+    background-color: #1ABC9C;
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-trial:hover {
+    background-color: #148f77;
+}
+
+.login-form-section {
+    flex: 1;
+    background: linear-gradient(to bottom, #1abc9cc2, #03d479f3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.login-no-account {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.login-link-signup {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-input-whatsapp {
+    width: 27%;
+    padding: 15px 45px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.login-input-whatsapp::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-connect-agent {
+    background-color: #1ABC9C;
+    color: white;
+    padding: 15px 40px;
+    border: 1px solid #02ac8a;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-connect-agent:hover {
+    background-color: black;
+    color: #1ABC9C;
+}
+
+/* =====================================
+    ESTILOS DA TELA DE CADASTRO DE PRODUTO (cadastrarproduto.html)
+    ===================================== */
+.product-body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.product-page-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    padding: 50px 60px;
+    max-width: 1800px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.product-page-container h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.product-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f8f8f8;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #a0a0a0;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #1ABC9C;
+    box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.2);
+}
+
+.form-textarea {
+    min-height: 100px; /* Mantido para o campo genérico */
+    resize: vertical;
+}
+
+/* Alteração: Aumenta a altura mínima ESPECÍFICA para a descrição do produto */
+#productDescription {
+    min-height: 250px; /* Aumentado para acomodar mais texto. Você pode ajustar este valor. */
+}
+
+
+.product-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn-primary {
+    background-color: #1ABC9C;
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #148f77;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #555;
+    padding: 15px 35px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex; /* Adicionado para que o ícone e texto fiquem alinhados */
+    align-items: center; /* Alinha o ícone verticalmente */
+    gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================
+    RESPONSIVIDADE (PARA AMBAS AS TELAS)
+    ===================================== */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 1200px;
+        padding: 40px;
+    }
+    .profiles-grid {
+        /* Mantém 2 colunas até 992px */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .profile-card {
+        padding: 30px;
+        min-height: 180px;
+    }
+    .profile-card h2 {
+        font-size: 1.6rem;
+    }
+    .profile-card p {
+        font-size: 1rem;
+    }
+    /* Responsividade da tela de cadastro de produto */
+    .product-page-container {
+        max-width: 900px;
+        padding: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+        padding: 30px;
+        margin: 30px auto;
+    }
+    .dashboard-header {
+        margin-bottom: 30px;
+        padding: 0 10px;
+        flex-direction: column; /* Cabeçalho em coluna */
+        align-items: center; /* Centraliza itens no cabeçalho */
+        gap: 15px; /* Espaçamento entre o título e os botões */
+    }
+    .header-buttons { /* Ajusta os botões do cabeçalho */
+        width: 100%;
+        justify-content: center; /* Centraliza os botões */
+        gap: 15px;
+    }
+    .container h1 {
+        font-size: 2.2rem;
+        text-align: center; /* Centraliza o título */
+        width: 100%;
+    }
+    .btn-config, .btn-logout {
+        padding: 12px 25px;
+        font-size: 1rem;
+        gap: 10px;
+        flex: 1; /* Faz os botões se expandirem */
+        max-width: 200px; /* Limita a largura para não ficarem gigantes */
+    }
+    .profiles-section {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .profiles-grid {
+        /* ALTERADO: Em 992px e abaixo, os cards ficam 1 por coluna */
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0;
+    }
+    .profile-card {
+        padding: 30px;
+        min-height: 160px;
+    }
+    .profile-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    .profile-card h2 i {
+        margin-right: 10px;
+    }
+    .profile-card p {
+        font-size: 1rem;
+    }
+    .status-message {
+        margin-top: 20px;
+        padding: 15px;
+    }
+    /* Responsividade da tela de cadastro de produto */
+    .product-page-container {
+        padding: 40px;
+        max-width: 800px;
+    }
+    .product-form-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .product-page-container h1 {
+        font-size: 2.2rem;
+    }
+    .form-group label {
+        font-size: 1rem;
+    }
+    .form-input, .form-textarea {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+    .form-textarea {
+        min-height: 200px; /* Ajuste para responsividade */
+    }
+    /* Alteração: Aumenta a altura mínima ESPECÍFICA para a descrição do produto */
+    #productDescription {
+        min-height: 250px; /* Mantido 250px para desktop, será sobrescrito em media query para mobile */
+    }
+    .product-form-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    /* Ajustes para os botões do dashboard em 992px */
+    .dashboard-actions-bottom {
+        justify-content: center; /* Centraliza os botões */
+        margin-top: 30px;
+    }
+    #backButtonIndex, #activateProfileButton { /* Aplica a ambos os botões */
+        width: 100%; /* Faz o botão ocupar a largura máxima disponível */
+        max-width: 300px; /* Limita a largura */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Responsividade para a tela de login */
+    .login-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+    .login-aside, .login-form-section {
+        width: 100%;
+        padding: 40px 20px;
+    }
+    .login-slogan {
+        font-size: 1rem;
+    }
+    .login-title {
+        font-size: 2rem;
+    }
+    .login-input-whatsapp {
+        width: 80%;
+    }
+
+    /* Responsividade para o layout de dashboard */
+    .dashboard-body {
+        flex-direction: column;
+    }
+    .profiles-grid {
+        grid-template-columns: 1fr; /* Garante 1 coluna para mobile */
+        gap: 20px;
+        padding: 0;
+    }
+    .profiles-section {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .profile-card {
+        padding: 25px;
+        min-height: unset;
+    }
+    .profile-card h2 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    .profile-card h2 i {
+        margin-right: 8px;
+    }
+    .profile-card p {
+        font-size: 0.95rem;
+    }
+    /* Ajuste para botões de header em telas menores (continua centralizado) */
+    .dashboard-header {
+        align-items: center; /* Centraliza tudo no cabeçalho */
+    }
+    .dashboard-header h1 {
+        margin-bottom: 15px;
+    }
+    .header-buttons {
+        gap: 10px;
+    }
+    .btn-config, .btn-logout {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    .status-message {
+        margin-top: 20px;
+        padding: 15px;
+    }
+    /* Responsividade da tela de cadastro de produto */
+    .product-page-container {
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 30px 20px;
+    }
+    .product-form-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 250px;
+    }
+    /* NOVO: Ajustes para os botões do dashboard em 768px e abaixo */
+    .dashboard-actions-bottom {
+        flex-direction: column; /* Empilha os botões */
+        align-items: center; /* Centraliza-os */
+        margin-top: 25px;
+        gap: 15px; /* Adiciona espaçamento entre os botões empilhados */
+    }
+    #backButtonIndex, #activateProfileButton { /* Aplica a ambos os botões */
+        width: 100%; /* Faz o botão ocupar a largura máxima disponível */
+        max-width: 250px; /* Limita a largura */
+    }
+}
+
+@media (max-width: 480px) {
+    .login-logo {
+        max-width: 180px;
+        margin-bottom: 10px;
+    }
+    .login-slogan {
+        font-size: 0.9rem;
+    }
+    .login-title {
+        font-size: 1.8rem;
+    }
+    .login-input-whatsapp, .btn-trial, .btn-connect-agent {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    /* Mais ajustes para mobile no dashboard */
+    .profile-card {
+        padding: 20px;
+    }
+    .profile-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    .profile-card h2 i {
+        margin-right: 6px;
+    }
+    .profile-card p {
+        font-size: 0.9rem;
+    }
+    .status-message {
+        margin-top: 15px;
+        padding: 12px;
+        font-size: 1rem;
+    }
+    /* Responsividade da tela de cadastro de produto */
+    .product-page-container h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    .product-form-grid {
+        gap: 20px;
+    }
+    .form-input, .form-textarea {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+    .form-textarea {
+        min-height: 120px; /* Ajuste para responsividade */
+    }
+    /* Alteração: Aumenta a altura mínima ESPECÍFICA para a descrição do produto em telas menores */
+    #productDescription {
+        min-height: 200px; /* Ajustado para ter altura suficiente em mobile */
+    }
+    /* NOVO: Ajustes para os botões do dashboard em 480px e abaixo */
+    .dashboard-actions-bottom {
+        flex-direction: column; /* Garante que continuem empilhados */
+        align-items: center; /* Centraliza-os */
+        margin-top: 20px;
+        gap: 10px; /* Ajusta o espaçamento para telas muito pequenas */
+    }
+    #backButtonIndex, #activateProfileButton { /* Aplica a ambos os botões */
+        max-width: 200px; /* Limita a largura */
+    }
 }
