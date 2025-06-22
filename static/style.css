@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* =====================================
-   ESTILOS GLOBAIS / RESET BÁSICO
-   ===================================== */
+    ESTILOS GLOBAIS / RESET BÁSICO
+    ===================================== */
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -13,8 +13,8 @@ body {
 }
 
 /* =====================================
-   ESTILOS DA TELA DE DASHBOARD (index.html)
-   ===================================== */
+    ESTILOS DA TELA DE DASHBOARD (index.html)
+    ===================================== */
 .dashboard-body {
     display: flex;
     min-height: 100vh;
@@ -53,7 +53,14 @@ body {
     font-size: 2.8rem;
     margin: 0;
 }
+/* Estilos para os checkboxes de palavras-chave */
+.suggested-keywords-checkboxes .checkbox-container {
+    font-weight: normal; /* Garante que o texto do label dentro do checkbox-container seja normal */
+}
 
+.suggested-keywords-checkboxes .checkbox-container input[type="checkbox"] {
+    /* Estilos existentes para o checkbox em si, se houver */
+}
 .btn-config,
 .btn-logout {
     color: white;
@@ -168,8 +175,8 @@ body {
 }
 
 /* =====================================
-   ESTILOS DA TELA DE LOGIN (login.html)
-   ===================================== */
+    ESTILOS DA TELA DE LOGIN (login.html)
+    ===================================== */
 .login-body {
     background-color: #fafafa;
     display: flex;
@@ -326,10 +333,11 @@ body {
 }
 
 /* =====================================
-   ESTILOS DA TELA DE CADASTRO DE PRODUTO (cadastrarproduto.html)
-   ===================================== */
+    ESTILOS DA TELA DE CADASTRO DE PRODUTO (cadastrarproduto.html)
+    ===================================== */
 .product-body {
-    background-color: #f0f2f5;
+    /* ALTERADO: Fundo agora é branco puro */
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -339,9 +347,12 @@ body {
 }
 
 .product-page-container {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Garante que o fundo do container seja branco */
     border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    /* ALTERADO: Remove a sombra, se houver */
+    box-shadow: none; /* Remove a sombra do container */
+    /* ALTERADO: Remove a borda do container */
+    border: none; /* Garante que não haja borda */
     padding: 50px 60px;
     max-width: 1800px;
     width: 100%;
@@ -349,7 +360,8 @@ body {
 }
 
 .product-page-container h1 {
-    color: #2c3e50;
+    /* ALTERADO: Nova cor para o título */
+    color: #004A3B;
     font-size: 2.5rem;
     margin-bottom: 40px;
     text-align: left;
@@ -379,25 +391,26 @@ body {
 .form-textarea {
     width: 100%;
     padding: 15px 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    border: 1px solid #EDEDED; /* Borda cinza clara */
+    border-radius: 12px; /* Borda arredondada de 12px */
     font-size: 1rem;
     color: #333;
     background-color: #f8f8f8;
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 2px 1px 1px 1px rgba(0, 184, 148, 0.25);
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-    color: #a0a0a0;
+    color: #01caa2; /* Placeholder na cor verde */
 }
 
 .form-input:focus,
 .form-textarea:focus {
     outline: none;
     border-color: #1ABC9C;
-    box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.2);
+    box-shadow: 0 0 0 2px rgba(26, 188, 156, 0.2), 2px 1px 1px 1px rgba(0, 184, 148, 0.25);
 }
 
 .form-textarea {
@@ -417,7 +430,7 @@ body {
 }
 
 .btn-primary {
-    background-color: #1ABC9C;
+    background-color: #00B894; /* Botão primário com background verde */
     color: white;
     padding: 15px 35px;
     border: none;
@@ -455,8 +468,8 @@ body {
 }
 
 /* =====================================
-   RESPONSIVIDADE (PARA AMBAS AS TELAS)
-   ===================================== */
+    RESPONSIVIDADE (PARA AMBAS AS TELAS)
+    ===================================== */
 @media (max-width: 1200px) {
     .container {
         max-width: 1200px;
@@ -465,6 +478,7 @@ body {
     .profiles-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
+        padding: 10px;
     }
     .profile-card {
         padding: 30px;
