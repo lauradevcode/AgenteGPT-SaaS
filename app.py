@@ -71,8 +71,8 @@ def gerar_resposta_gemini(pergunta_usuario, perfil_prompt_base, force_product_co
         model = genai.GenerativeModel('gemini-1.5-flash') 
 
         generation_config = {
-            "temperature": 0.2, 
-            "max_output_tokens": 500
+            "temperature": 0.1, 
+            "max_output_tokens": 250
         }
 
         global product_info
